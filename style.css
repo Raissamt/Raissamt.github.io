@@ -1,0 +1,29 @@
+h1{
+    padding: 20px;
+    margin-left: 20px;
+}
+
+#espaco{
+    margin-left: 940px;
+    margin-top: -60px;
+}
+
+
+#informacoes{
+    width: 50%;
+    margin-left: 290px;
+}
+
+img{
+    width: 200px;
+    
+}
+
+#figura{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
