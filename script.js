@@ -94,13 +94,13 @@ localStorage.setItem('estacionamento', JSON.stringify(dadosIniciais));
 
 function cliqueCadastro(e){
 
-    var apartamento = window.document.getElementById('cadastroApartamento').innerText;
-    var vaga = window.document.getElementById('cadastroVaga').innerText;
-    var hospede = window.document.getElementById('cadastroNome').innerText;
+    var apartamento = window.document.getElementById('cadastroApartamento').value;
+    var vaga = window.document.getElementById('cadastroVaga').value;
+    var hospede = window.document.getElementById('cadastroNome').value;
     var checkout = false;
-    var cor = window.document.getElementById('cadastroCor').innerText;
-    var veiculo = window.document.getElementById('cadastroVeiculo').innerText;
-    var placa = window.document.getElementById('cadastroPlaca').innerText;
+    var cor = window.document.getElementById('cadastroCor').value;
+    var veiculo = window.document.getElementById('cadastroVeiculo').value;
+    var placa = window.document.getElementById('cadastroPlaca').value;
     var date = new Date();
     var hora = new Date().getHours();
     var minutos = new Date().getMinutes();
