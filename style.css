@@ -1,29 +1,67 @@
+body{
+    background-color: #5F9F9F;
+}
+
 h1{
-    padding: 20px;
-    margin-left: 20px;
-}
-
-#espaco{
-    margin-left: 940px;
-    margin-top: -60px;
+    color: white;
 }
 
 
-#informacoes{
-    width: 50%;
-    margin-left: 290px;
+#inicio{                            /*Encontra-se no index.html*/
+    text-align: center;
+    margin-top: 130px;
 }
 
-img{
-    width: 200px;
-    
+.botoes{                            /*Encontra-se no index.html*/
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px; 
+    width: 700px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.363);
+   
 }
 
-#figura{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    
+
+h2{
+    color: white;
+    text-align: center;
+    margin-top: 130px;
+
 }
 
+#cadastramento{                  /*Enconta-se no index1.html*/
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    margin-top: 70px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.363);
+}
+
+
+section{                           /*Encontra-se no index2.html*/
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 150px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.363);
+}
+
+button{                          /*Encontra-se no index.html*/
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+        padding: 15px; 
+        width: 700px;
+        margin: auto;
+        margin-top: 50px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.363);
+}
