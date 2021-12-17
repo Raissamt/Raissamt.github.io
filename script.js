@@ -14,8 +14,8 @@ carro1 = {
     modelo: "palio",
     cor: "vermelhor",
     date: "13/12/2021 14:30",
-    hora: new Date().getHours(),
-    minutos: new Date().getMinutes(),
+    hora: "14",
+    minutos: "30",
     apartamento: "106",
     hospede: "Flávio Roberto Pereira",
     vaga: "02",
@@ -29,8 +29,8 @@ carro2 = {
     modelo: "duster",
     cor: "branco",
     date: "10/12/2021 14:09",
-    hora: new Date().getHours(),
-    minutos: new Date().getMinutes(),
+    hora: "14",
+    minutos: "09",
     apartamento: "303",
     hospede: "Juliana Gomes Araújo",
     vaga: "07",
@@ -44,8 +44,8 @@ moto1 = {
     modelo: "moto",
     cor: "preto",
     date: "14/12/2021 17:14",
-    hora: new Date().getHours(),
-    minutos: new Date().getMinutes(),
+    hora: "17",
+    minutos: "14",
     apartamento: "502",
     hospede: "Carolina Fonseca Costa",
     vaga: "19",
@@ -58,8 +58,8 @@ moto2 = {
     modelo: "moto",
     cor: "branco",
     date: "12/12/2021 15:29",
-    hora: new Date().getHours(),
-    minutos: new Date().getMinutes(),
+    hora: "15",
+    minutos: "29",
     apartamento: "708",
     hospede: "Jennifer Siqueira Andrade",
     vaga: "27",
@@ -73,8 +73,8 @@ carro3 = {
     modelo: "onix",
     cor: "vermelho",
     date: "12/12/2021 10:29",
-    hora: new Date().getHours(),
-    minutos: new Date().getMinutes(),
+    hora: "10",
+    minutos: "29",
     apartamento: "907",
     hospede: "Paulo Neto Viana",
     vaga: "35",
@@ -181,7 +181,12 @@ function statusEstacionamento(e){
     while( i < carrosEstacionamento.length){
         var modelo = carrosEstacionamento[i].modelo;
         var placa = carrosEstacionamento[i].placa;
+
+        if(carrosEstacionamento[i].minutos < 10){
+        var horaEntrada = carrosEstacionamento[i].hora + ":0" + carrosEstacionamento[i].minutos;
+        }else{
         var horaEntrada = carrosEstacionamento[i].hora + ":" + carrosEstacionamento[i].minutos;
+        }
         var entrada = carrosEstacionamento[i].date;
         
         if(!(carrosEstacionamento[i].checkout)){
