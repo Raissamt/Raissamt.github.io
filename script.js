@@ -16,9 +16,9 @@ carro1 = {
     date: "13/12/2021 14:30",
     hora: new Date().getHours(),
     minutos: new Date().getMinutes(),
-    apartamento: 106,
+    apartamento: "106",
     hospede: "Flávio Roberto Pereira",
-    vaga: 02,
+    vaga: "02",
     checkout: true,
     dataSaida: "15/12/2021 11:55",
 
@@ -31,9 +31,9 @@ carro2 = {
     date: new Date(),
     hora: new Date().getHours(),
     minutos: new Date().getMinutes(),
-    apartamento: 303,
+    apartamento: "303",
     hospede: "Juliana Gomes Araújo",
-    vaga: 07,
+    vaga: "07",
     checkout: false,
     dataSaida: "",
 
@@ -46,9 +46,9 @@ moto1 = {
     date: new Date(),
     hora: new Date().getHours(),
     minutos: new Date().getMinutes(),
-    apartamento: 502,
+    apartamento: "502",
     hospede: "Carolina Fonseca Costa",
-    vaga: 19,
+    vaga: "19",
     checkout: false,
     dataSaida: "",
 }
@@ -60,9 +60,9 @@ moto2 = {
     date: "12/12/2021 15:29",
     hora: new Date().getHours(),
     minutos: new Date().getMinutes(),
-    apartamento: 708,
+    apartamento: "708",
     hospede: "Jennifer Siqueira Andrade",
-    vaga: 27,
+    vaga: "27",
     checkout: true,
     dataSaida: "16/12/2021 10:27",
 
@@ -75,9 +75,9 @@ carro3 = {
     date: new Date(),
     hora: new Date().getHours(),
     minutos: new Date().getMinutes(),
-    apartamento: 907,
+    apartamento: "907",
     hospede: "Paulo Neto Viana",
-    vaga: 35,
+    vaga: "35",
     checkout: false,
     dataSaida: "",
 }
@@ -94,8 +94,8 @@ localStorage.setItem('estacionamento', JSON.stringify(dadosIniciais));
 
 function cliqueCadastro(e){
 
-    var apartamento = window.document.getElementById('cadastroApartamento').value;
-    var vaga = window.document.getElementById('cadastroVaga').value;
+    var apartamento = window.document.getElementById('cadastroApartamento').innerText;
+    var vaga = window.document.getElementById('cadastroVaga').innerText;
     var hospede = window.document.getElementById('cadastroNome').innerText;
     var checkout = false;
     var cor = window.document.getElementById('cadastroCor').innerText;
@@ -119,7 +119,10 @@ function cliqueCadastro(e){
         minutos: minutos,
         dataSaida: dataSaida,
     }
-    localStorage.setItem('estacionamento', JSON.stringify(cadastro));
+
+    var carrosEstacionamento = JSON.parse(localStorage.getItem('estacionamento'));
+    carrosEstacionamento.push(cadastro);
+    localStorage.setItem('estacionamento', JSON.stringify(carrosEstacionamento));
 
     alert('Cadastro realizado!');
 
@@ -141,8 +144,6 @@ function cliqueVerificar(e){
         }
         else{
     while( i < carrosEstacionamento.length){
-
-        
 
         if (placa == carrosEstacionamento[i].placa && modelo == carrosEstacionamento[i].modelo && carrosEstacionamento[i].checkout == true){
             alert('Entrada não permitida! Hóspede já realizou checkout!');
@@ -180,14 +181,17 @@ function statusEstacionamento(e){
     while( i < carrosEstacionamento.length){
         var modelo = carrosEstacionamento[i].modelo;
         var placa = carrosEstacionamento[i].placa;
-        var horaEntrada = carrosEstacionamento[i].hora;
+        var horaEntrada = carrosEstacionamento[i].hora + ":" + carrosEstacionamento[i].minutos;
         var entrada = carrosEstacionamento[i].date;
-
+        
+        if(!(carrosEstacionamento[i].checkout)){
+             tabelaCarros.innerHTML +=  "<tr> <td>" + modelo + "</td> <td>" + placa + "</td> <td>" + horaEntrada + "</td>" + "<td>" + entrada + "</td> </tr>";        
+        }
         console.log('modelo, placa e hora: ', modelo, placa, horaEntrada);
         i = i + 1;
 
-        tabelaCarros.innerHTML +=  "<tr> <td>" + modelo + "</td> <td>" + placa + "</td> <td>" + horaEntrada + "</td>" + "<td>" + entrada + "</td> </tr>";
-        
+       
+       
     }
     e.preventDeFault();
 }
@@ -202,7 +206,7 @@ function registrosMovimentacao(e){
         var vaga = carrosEstacionamento[i].vaga;
         var placa = carrosEstacionamento[i].placa;
         var entrada = carrosEstacionamento[i].date;
-        var hora = carrosEstacionamento[i].hora;
+        var hora = carrosEstacionamento[i].hora + ":" + carrosEstacionamento[i].minutos;
         if(carrosEstacionamento[i].checkout){
             var saida = "sim (checkout realizado)";
         } else{
